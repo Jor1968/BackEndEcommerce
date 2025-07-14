@@ -20,7 +20,7 @@ import com.Techlab.Articulo.Service.ArticuloService;
 @RequestMapping("/Articulos")
 //http://localhost:9090/Articulos
 public class ArticuloController {
-	
+	//test
 	private final ArticuloService articuloService;
 	
 	@Autowired
