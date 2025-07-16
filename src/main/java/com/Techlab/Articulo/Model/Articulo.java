@@ -3,33 +3,34 @@ package com.Techlab.Articulo.Model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "articuloPP")
+@Table(name = "articulo")
 public class Articulo {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long codigo;
+	private Integer codigo;
 	
 	private String nombre;
 	private Double precio;
-	private Long stock;
+	private Integer stock;
+	
 
 	
 	public Articulo() {}
 	
-	public Articulo(String nombre, Double precio, Long stock, Long codigo) {
-		this.codigo = codigo;
+	public Articulo(String nombre, Double precio, Integer stock) {
+		//this.codigo = codigo;
 		this.precio = precio;
 		this.nombre = nombre;
 		this.stock = stock;
 	}
 
 	
-	public Long getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Long codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 
@@ -49,11 +50,11 @@ public class Articulo {
 		this.precio = precio;
 	}
 
-	public Long getStock() {
+	public Integer getStock() {
 		return stock;
 	}
 
-	public void setStock(Long stock) {
+	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
 

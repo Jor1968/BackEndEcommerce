@@ -24,7 +24,7 @@ public class ArticuloService {
 	
 	
 
-	@GetMapping
+	//@GetMapping
 	public List<Articulo> listarTodos(){
 		//return Arrays.asList(new Articulo("Cafe", 200, 100));
 		//return articulos;

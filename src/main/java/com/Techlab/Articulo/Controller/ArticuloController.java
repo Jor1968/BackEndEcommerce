@@ -47,13 +47,13 @@ public class ArticuloController {
 		return articuloService.guardar(nuevoArticulo);
 	}
 	
-	@PutMapping("/(id)")
+	@PutMapping("/{id}")
 	public Articulo actualizarArticulo(@PathVariable int id, @RequestBody Articulo datos) {
 		return articuloService.actualizar(id, datos);
 		
 	}
 	
-	@DeleteMapping("/(id)")
+	@DeleteMapping("/{id}")
 	public void EliminarArticulo(@PathVariable int id) {
 		articuloService.eliminar(id);
 		
