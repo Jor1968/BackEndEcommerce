@@ -18,8 +18,8 @@ import com.Techlab.Articulo.Model.Articulo;
 import com.Techlab.Articulo.Service.ArticuloService;
 
 @RestController
-@RequestMapping("/Articulos")
-@CrossOrigin(origins = "http://localhost:9000")
+@RequestMapping("/api/Articulos")
+@CrossOrigin(origins = "https://jor1968.github.io/Mercado_Michi-Nuevo-FRONTPARABACKEND")
 //http://localhost:9090/Articulos
 public class ArticuloController {
 	//test
