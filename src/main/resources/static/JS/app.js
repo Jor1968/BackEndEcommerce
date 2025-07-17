@@ -9,61 +9,35 @@
 
 var verdadMostrada = false;
 
-/*
-fetch("http://localhost:9090/Articulos") 
- .then(response => response.json()) 
- .then(productos => { 
-   // Actualizar el DOM con la lista de productos 
-   mostrarProductosEnLaPantalla(productos); 
- }) 
- .catch(error => console.error(error)); 
+let productos = ["error"];
 
-*/
+async function fetchArticulos(){
 
-const productos = [
-     { 
-        id: 'MichiChatran',
-        nombre: 'Michi Chatran', 
-        descripcion: 'El famoso Chatran mencionado por bandas de cumbia como Damas Gratis y Los Gedes.',
-        precio: 1200, 
-        stock: 1,
-        descuento: 0.01  // 5% de descuento
-    },
-     { 
-        id: 'MichiViolento',
-        nombre: 'Michi Violento', 
-        descripcion: 'Este gato sufre de ataques de ira provocados por un profundo daño neuronal  proveniente del abuso de inhalantes como el poxiran.',
-        precio: 666, 
-        stock: 666,
-        descuento: 0.6  // 10% de descuento
-    },
-     { 
-        id: 'GatoEnergumeno',
-        nombre: 'Gato Energumeno', 
-        descripcion: 'Este es mas picante aun, cuidado.',
-        precio: 118, 
-        stock: 10,
-        descuento: 0.5  // 10% de descuento
-    },
-     { 
-        id: 'GatoApacible',
-        nombre: 'Gato Apacible', 
-        descripcion: 'Gato ideal para aquellos hobbistas de felinos que recien comienzan. ',
-        precio: 120, 
-        stock: 10,
-        descuento: 0.1  // 10% de descuento
-    },
 
-     { 
-        id: 'GatoArgentino',
-        nombre: 'Gato Argentino',
-        descripcion: 'Mas Argentino que la sopa Paraguaya.',
-        precio: 100, 
-        stock: 50,
-        descuento: 0  // Sin descuento
+
+    try{
+        const response = await fetch('http://localhost:9090/api/Articulos');
+
+        if(!response.ok){
+            throw new Error("No se pudo hacer el fetch");
+        }
+        
+        productos = await response.json();
+        console.log(productos);
+
     }
-];
-let htmlCode = ``;
+    catch(error){
+        console.error(error);
+    }
+}
+fetchArticulos();
+
+
+
+
+
+let htmlCode = "";
+
 
 productos.forEach(gatoIndividual => {
   htmlCode =
@@ -72,14 +46,12 @@ productos.forEach(gatoIndividual => {
         <div class="tarjeta">
     
      
-            <img src="${gatoIndividual.pictureUrl}" alt="${gatoIndividual.imageAlt}">
+            <img src="${gatoIndividual.imagenURL}" alt="${gatoIndividual.imageAlt}">
             <h1>"${gatoIndividual.nombre}" </h1>
             <p>"${gatoIndividual.precio +"$"}" </p>
-            <p class="${gatoIndividual.stock}"> stock:1 </p>
+            <p class="stock-${gatoIndividual.id}"> ${gatoIndividual.stock} </p>
             <p><button onclick="MasInformacion('${gatoIndividual.id}')">Mostrar Mas</button></p>
-            <p class="descripcion-extra-${gatoIndividual.id}"> </p>
-            <p>NUMERO 1 EN VENTAS. </p>
-            
+            <p class="descripcion-extra-${gatoIndividual.id}"> </p>            
             <p><button onclick="agregarAlCarrito('${gatoIndividual.nombre}', '${gatoIndividual.precio}', '${gatoIndividual.id}')">Comprar</button></p>
     
         </div>
@@ -89,7 +61,7 @@ productos.forEach(gatoIndividual => {
 });
 
 
-var booksCards = document.getElementById("TarjetasGatos");
+let booksCards = document.getElementById("TarjetasGatos");
 
 booksCards.innerHTML = htmlCode;
 
@@ -167,10 +139,15 @@ function MasInformacion(id){
 
 }
 
-function Producto(nombre, precio, id){
+function Producto(codigo,nombre, descripcion, categoria,imagenURL , precio, stock, descuento, idString,){
+     this.id = codigo;
      this.nombre = nombre;
-     this.precio = precio;
-     this.id = id
+     this.descripcion = descripcion;
+     this.categoria = categoria;
+     this.imagenURL = imagenURL;
+     this.stock = stock;
+     this.descuento = descuento;
+     this.idString = idString;
 
  }
 
@@ -228,7 +205,7 @@ function renderizarCarrito() {
     
     // Renderizar cada producto
     carritoLoad.forEach((producto, index) => {
-        const productoInfo = productos[producto.id];
+        const productoInfo = productos[producto.codigo];
         const li = document.createElement('li');
         
         // Calcular descuento individual
