@@ -41,6 +41,10 @@ public class ArticuloService {
 		return repo.findById(id).orElse(null);
 	}
 	
+	public Articulo obtenerPorNombre(int id){
+		return repo.findById(id).orElse(null);
+	}
+	
 	public Articulo guardar(Articulo p){
 		/*p.setCodigo(contadorId++);
 		articulos.add(p);
@@ -53,9 +57,13 @@ public class ArticuloService {
 	public Articulo actualizar(int id,Articulo dato){
 		Articulo p = obtenerPorId(id);
 		if (p != null){
+			p.setIdString(dato.getIdString());
 			p.setNombre(dato.getNombre());
+			p.setDescripcion(dato.getDescripcion());
 			p.setPrecio(dato.getPrecio());
 			p.setStock(dato.getStock());
+			p.setDescuento(dato.getDescuento());
+			
 			return repo.save(p);
 			
 		}

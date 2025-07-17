@@ -10,28 +10,50 @@ public class Articulo {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;
 	
+	private String idString;
 	private String nombre;
-	private Double precio;
+	private String descripcion;
+	private String categoria;
+	private String imagenURL;
+	private Integer precio;
 	private Integer stock;
+	private Double descuento;
 	
 
 	
 	public Articulo() {}
 	
-	public Articulo(String nombre, Double precio, Integer stock) {
+	public Articulo(String idString, String nombre, String categoria, String imagenURL, String descripcion, Integer precio, Integer stock, Double descuento) {
 		//this.codigo = codigo;
-		this.precio = precio;
+		
+		this.idString = idString;
 		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.categoria = categoria;
+		this.imagenURL = imagenURL;
+		this.precio = precio;
 		this.stock = stock;
+		this.descuento = descuento;
 	}
 
 	
+	
+	
+
 	public Integer getCodigo() {
 		return codigo;
 	}
 
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
+	}
+
+	public String getIdString() {
+		return idString;
+	}
+
+	public void setIdString(String idString) {
+		this.idString = idString;
 	}
 
 	public String getNombre() {
@@ -41,12 +63,39 @@ public class Articulo {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 
-	public double getPrecio() {
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public String getImagenURL() {
+		return imagenURL;
+	}
+
+	public void setImagenURL(String imagenURL) {
+		this.imagenURL = imagenURL;
+	}
+
+	public Integer getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(Integer precio) {
 		this.precio = precio;
 	}
 
@@ -59,10 +108,18 @@ public class Articulo {
 	}
 
 	public String mostrar() {
-		return "codigo= " + codigo +  ", nombre= " + nombre + ", stock= " + stock + ", precio= "  + precio;
+		return "codigo= " + codigo +  ", nombre= " + nombre + ", idString= " + idString + ", stock= " + stock + ", precio= "  + precio + ", descuento= " + descuento;
 		
 	}
 	
+	public Double getDescuento() {
+		return descuento;
+	}
+
+	public void setDescuento(Double descuento) {
+		this.descuento = descuento;
+	}
+
 	@Override
 	public String toString() {
 		return mostrar();
