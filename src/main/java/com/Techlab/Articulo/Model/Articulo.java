@@ -10,7 +10,7 @@ public class Articulo {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;
 	
-	private String idString;
+	private String id;
 	private String nombre;
 	private String descripcion;
 	private String categoria;
@@ -26,7 +26,7 @@ public class Articulo {
 	public Articulo(String idString, String nombre, String categoria, String imagenURL, String descripcion, Integer precio, Integer stock, Double descuento) {
 		//this.codigo = codigo;
 		
-		this.idString = idString;
+		this.id = idString;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.categoria = categoria;
@@ -49,11 +49,11 @@ public class Articulo {
 	}
 
 	public String getIdString() {
-		return idString;
+		return id;
 	}
 
 	public void setIdString(String idString) {
-		this.idString = idString;
+		this.id = idString;
 	}
 
 	public String getNombre() {
@@ -108,7 +108,7 @@ public class Articulo {
 	}
 
 	public String mostrar() {
-		return "codigo= " + codigo +  ", nombre= " + nombre + ", idString= " + idString + ", stock= " + stock + ", precio= "  + precio + ", descuento= " + descuento;
+		return "codigo= " + codigo +  ", nombre= " + nombre + ", idString= " + id + ", stock= " + stock + ", precio= "  + precio + ", descuento= " + descuento;
 		
 	}
 	

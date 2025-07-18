@@ -20,7 +20,7 @@ import com.Techlab.Articulo.Service.ArticuloService;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/Articulos")
-//http://localhost:9090/Articulos
+//http://localhost:9090/api/Articulos
 public class ArticuloController {
 	//test
 	private final ArticuloService articuloService;
