@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Techlab.Articulo.Model.Articulo;
 import com.Techlab.Articulo.Service.ArticuloService;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/Articulos")
-@CrossOrigin(origins = "https://jor1968.github.io/Mercado_Michi-Nuevo-FRONTPARABACKEND")
 //http://localhost:9090/Articulos
 public class ArticuloController {
 	//test
