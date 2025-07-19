@@ -59,9 +59,11 @@ public class ArticuloService {
 		if (p != null){
 			p.setIdString(dato.getIdString());
 			p.setNombre(dato.getNombre());
+			p.setCategoria(dato.getCategoria());
 			p.setDescripcion(dato.getDescripcion());
 			p.setPrecio(dato.getPrecio());
 			p.setStock(dato.getStock());
+			p.setDescripcion2(dato.getDescripcion2());
 			p.setDescuento(dato.getDescuento());
 			
 			return repo.save(p);

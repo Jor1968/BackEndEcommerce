@@ -8,15 +8,16 @@ public class Articulo {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer codigo;
+	private Integer id;
 	
-	private String id;
+	private String idString;
 	private String nombre;
 	private String descripcion;
 	private String categoria;
 	private String imagenURL;
 	private Integer precio;
 	private Integer stock;
+	private String descripcion2;
 	private Double descuento;
 	
 
@@ -26,13 +27,14 @@ public class Articulo {
 	public Articulo(String idString, String nombre, String categoria, String imagenURL, String descripcion, Integer precio, Integer stock, Double descuento) {
 		//this.codigo = codigo;
 		
-		this.id = idString;
+		this.idString = idString;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.categoria = categoria;
 		this.imagenURL = imagenURL;
 		this.precio = precio;
 		this.stock = stock;
+		this.descripcion2 = descripcion2;
 		this.descuento = descuento;
 	}
 
@@ -40,20 +42,21 @@ public class Articulo {
 	
 	
 
-	public Integer getCodigo() {
-		return codigo;
-	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
-	}
-
-	public String getIdString() {
+	public Integer getId() {
 		return id;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getIdString() {
+		return idString;
+	}
+
 	public void setIdString(String idString) {
-		this.id = idString;
+		this.idString = idString;
 	}
 
 	public String getNombre() {
@@ -106,9 +109,19 @@ public class Articulo {
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
+	
+	
+
+	public String getDescripcion2() {
+		return descripcion2;
+	}
+
+	public void setDescripcion2(String descripcion2) {
+		this.descripcion2 = descripcion2;
+	}
 
 	public String mostrar() {
-		return "codigo= " + codigo +  ", nombre= " + nombre + ", idString= " + id + ", stock= " + stock + ", precio= "  + precio + ", descuento= " + descuento;
+		return "idString= " + idString +  ", nombre= " + nombre + ", idString= " + id + ", stock= " + stock + ", precio= "  + precio + ", descuento= " + descuento;
 		
 	}
 	

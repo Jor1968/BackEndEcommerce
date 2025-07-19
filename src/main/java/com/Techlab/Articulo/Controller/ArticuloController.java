@@ -48,7 +48,7 @@ public class ArticuloController {
 		Articulo art = articuloService.obtenerPorId(id);
 		switch(nombreDetalle) {
 		case "codigo":
-			return art.getCodigo();
+			return art.getId();
 		case "idString":
 			return art.getIdString();
 		case "nombre":
